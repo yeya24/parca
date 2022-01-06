@@ -246,6 +246,9 @@ function(params) {
         template: {
           metadata: {
             labels: prc.config.commonLabels,
+            annotations: {
+              'checksum/config': std.md5(std.toString(prc.config.config)),
+            },
           },
           spec: {
             containers: [c],
